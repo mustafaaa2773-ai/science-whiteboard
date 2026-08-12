@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive educational science and physics whiteboard">
+  <title>Science Whiteboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <h1>السبورة التفاعلية</h1>
+      <span class="status">MVP</span>
+    </header>
+    <section class="toolbar" aria-label="أدوات السبورة">
+      <button type="button" data-tool="pen">قلم</button>
+      <button type="button" data-tool="eraser">ممحاة</button>
+      <button type="button" data-tool="line">خط</button>
+      <button type="button" data-tool="rectangle">مستطيل</button>
+      <button type="button" data-tool="ellipse">دائرة</button>
+      <button type="button" data-tool="text">نص</button>
+      <button type="button" data-tool="select">تحديد</button>
+      <button type="button" id="undo">تراجع</button>
+      <button type="button" id="redo">إعادة</button>
+      <button type="button" id="clear">مسح</button>
+      <button type="button" id="export">تصدير PNG</button>
+    </section>
+    <section class="board-wrap">
+      <canvas id="whiteboard" aria-label="لوحة الرسم التفاعلية"></canvas>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
