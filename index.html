@@ -3,31 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Interactive educational science and physics whiteboard">
+  <meta name="description" content="سبورة تفاعلية لتدريس الفيزياء والعلوم">
   <title>Science Whiteboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="app">
+  <main class="app-shell">
     <header class="topbar">
-      <h1>السبورة التفاعلية</h1>
-      <span class="status">MVP</span>
+      <div class="brand"><span class="brand-mark">∑</span><div><strong>Science Whiteboard</strong><small>السبورة التفاعلية</small></div></div>
+      <div class="top-actions"><span id="toolStatus" class="status">تحديد</span><button id="export" class="primary" type="button">تصدير PNG</button></div>
     </header>
-    <section class="toolbar" aria-label="أدوات السبورة">
-      <button type="button" data-tool="pen">قلم</button>
-      <button type="button" data-tool="eraser">ممحاة</button>
-      <button type="button" data-tool="line">خط</button>
-      <button type="button" data-tool="rectangle">مستطيل</button>
-      <button type="button" data-tool="ellipse">دائرة</button>
-      <button type="button" data-tool="text">نص</button>
-      <button type="button" data-tool="select">تحديد</button>
-      <button type="button" id="undo">تراجع</button>
-      <button type="button" id="redo">إعادة</button>
-      <button type="button" id="clear">مسح</button>
-      <button type="button" id="export">تصدير PNG</button>
-    </section>
-    <section class="board-wrap">
-      <canvas id="whiteboard" aria-label="لوحة الرسم التفاعلية"></canvas>
+    <section class="workspace">
+      <aside class="toolbar" aria-label="أدوات السبورة">
+        <div class="tool-group">
+          <button class="tool active" data-tool="select" title="تحديد">⌁<span>تحديد</span></button>
+          <button class="tool" data-tool="pen" title="قلم">✎<span>قلم</span></button>
+          <button class="tool" data-tool="eraser" title="ممحاة">⌫<span>ممحاة</span></button>
+        </div>
+        <div class="separator"></div>
+        <div class="tool-group">
+          <button class="tool" data-tool="line" title="خط">╱<span>خط</span></button>
+          <button class="tool" data-tool="arrow" title="سهم">➜<span>سهم</span></button>
+          <button class="tool" data-tool="rectangle" title="مستطيل">□<span>مستطيل</span></button>
+          <button class="tool" data-tool="ellipse" title="دائرة">○<span>دائرة</span></button>
+          <button class="tool" data-tool="text" title="نص">T<span>نص</span></button>
+        </div>
+        <div class="separator"></div>
+        <div class="tool-group compact"><button id="undo" type="button" title="تراجع">↶</button><button id="redo" type="button" title="إعادة">↷</button><button id="clear" type="button" title="مسح الكل">⌧</button></div>
+      </aside>
+      <section class="board-area">
+        <div class="board-toolbar">
+          <label>اللون <input id="color" type="color" value="#17202a"></label>
+          <label>السمك <input id="size" type="range" min="1" max="16" value="3"></label>
+          <button id="gridToggle" type="button">الشبكة</button><button id="zoomOut" type="button">−</button><span id="zoomValue">100%</span><button id="zoomIn" type="button">+</button><button id="resetView" type="button">إعادة العرض</button>
+        </div>
+        <div class="canvas-wrap" id="canvasWrap"><canvas id="whiteboard" aria-label="لوحة الرسم التفاعلية"></canvas><div id="emptyHint" class="empty-hint">ابدأ بالرسم أو اختر أداة من الشريط</div></div>
+        <div class="hint">اختصارات: <kbd>V</kbd> تحديد · <kbd>P</kbd> قلم · <kbd>E</kbd> ممحاة · <kbd>Ctrl+Z</kbd> تراجع · <kbd>Ctrl+Y</kbd> إعادة</div>
+      </section>
     </section>
   </main>
   <script src="script.js"></script>
