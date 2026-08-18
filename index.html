@@ -1,47 +1,4 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="سبورة تفاعلية لتدريس الفيزياء والعلوم">
-  <title>Science Whiteboard</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <main class="app-shell">
-    <header class="topbar">
-      <div class="brand"><span class="brand-mark">∑</span><div><strong>Science Whiteboard</strong><small>السبورة التفاعلية</small></div></div>
-      <div class="top-actions"><span id="toolStatus" class="status">تحديد</span><button id="export" class="primary" type="button">تصدير PNG</button></div>
-    </header>
-    <section class="workspace">
-      <aside class="toolbar" aria-label="أدوات السبورة">
-        <div class="tool-group">
-          <button class="tool active" data-tool="select" title="تحديد">⌁<span>تحديد</span></button>
-          <button class="tool" data-tool="pen" title="قلم">✎<span>قلم</span></button>
-          <button class="tool" data-tool="eraser" title="ممحاة">⌫<span>ممحاة</span></button>
-        </div>
-        <div class="separator"></div>
-        <div class="tool-group">
-          <button class="tool" data-tool="line" title="خط">╱<span>خط</span></button>
-          <button class="tool" data-tool="arrow" title="سهم">➜<span>سهم</span></button>
-          <button class="tool" data-tool="rectangle" title="مستطيل">□<span>مستطيل</span></button>
-          <button class="tool" data-tool="ellipse" title="دائرة">○<span>دائرة</span></button>
-          <button class="tool" data-tool="text" title="نص">T<span>نص</span></button>
-        </div>
-        <div class="separator"></div>
-        <div class="tool-group compact"><button id="undo" type="button" title="تراجع">↶</button><button id="redo" type="button" title="إعادة">↷</button><button id="clear" type="button" title="مسح الكل">⌧</button></div>
-      </aside>
-      <section class="board-area">
-        <div class="board-toolbar">
-          <label>اللون <input id="color" type="color" value="#17202a"></label>
-          <label>السمك <input id="size" type="range" min="1" max="16" value="3"></label>
-          <button id="gridToggle" type="button">الشبكة</button><button id="zoomOut" type="button">−</button><span id="zoomValue">100%</span><button id="zoomIn" type="button">+</button><button id="resetView" type="button">إعادة العرض</button>
-        </div>
-        <div class="canvas-wrap" id="canvasWrap"><canvas id="whiteboard" aria-label="لوحة الرسم التفاعلية"></canvas><div id="emptyHint" class="empty-hint">ابدأ بالرسم أو اختر أداة من الشريط</div></div>
-        <div class="hint">اختصارات: <kbd>V</kbd> تحديد · <kbd>P</kbd> قلم · <kbd>E</kbd> ممحاة · <kbd>Ctrl+Z</kbd> تراجع · <kbd>Ctrl+Y</kbd> إعادة</div>
-      </section>
-    </section>
-  </main>
-  <script src="script.js"></script>
-</body>
-</html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="سبورة تفاعلية لتدريس الفيزياء والعلوم مع تعاون لحظي"><title>Science Whiteboard — السبورة التفاعلية</title><link rel="stylesheet" href="style.css"></head>
+<body><main class="app-shell"><header class="topbar"><div class="brand"><span class="brand-mark">∑</span><div><strong>Science Whiteboard</strong><small>السبورة التفاعلية العلمية</small></div></div><div class="top-actions"><span id="connection" class="status">جاري الاتصال…</span><span id="presence" class="presence"></span><button id="share" type="button">🔗 مشاركة الجلسة</button><button id="export" class="primary" type="button">تصدير PNG</button></div></header><section class="workspace"><aside class="toolbar" aria-label="أدوات السبورة"><div class="tool-group"><button class="tool active" data-tool="select">⌁<span>تحديد</span></button><button class="tool" data-tool="pen">✎<span>قلم</span></button><button class="tool" data-tool="eraser">⌫<span>ممحاة</span></button></div><div class="separator"></div><div class="tool-group"><button class="tool" data-tool="line">╱<span>خط</span></button><button class="tool" data-tool="arrow">➜<span>سهم</span></button><button class="tool" data-tool="rectangle">□<span>مستطيل</span></button><button class="tool" data-tool="ellipse">○<span>دائرة</span></button><button class="tool" data-tool="text">T<span>نص</span></button></div><div class="separator"></div><div class="tool-group compact"><button id="undo">↶</button><button id="redo">↷</button><button id="clear">⌧</button></div></aside><section class="board-area"><div class="board-toolbar"><label>اللون <input id="color" type="color" value="#17202a"></label><label>السمك <input id="size" type="range" min="1" max="16" value="3"></label><button id="gridToggle">الشبكة</button><button id="zoomOut">−</button><span id="zoomValue">100%</span><button id="zoomIn">+</button><button id="resetView">إعادة العرض</button><span id="roomLabel" class="room-label"></span></div><div class="canvas-wrap" id="canvasWrap"><canvas id="whiteboard" aria-label="لوحة الرسم التفاعلية"></canvas><div id="emptyHint" class="empty-hint">ابدأ بالرسم أو شارك رابط الجلسة مع الطلاب</div><div id="shareBox" class="share-box"><strong>مشاركة الجلسة</strong><input id="shareLink" readonly><button id="copyShare">نسخ الرابط</button></div></div><div class="hint">اختصارات: <kbd>V</kbd> تحديد · <kbd>P</kbd> قلم · <kbd>E</kbd> ممحاة · <kbd>Ctrl+Z</kbd> تراجع · <kbd>Ctrl+Y</kbd> إعادة · <kbd>Ctrl+عجلة</kbd> تكبير</div></section></section></main><script src="https://cdn.jsdelivr.net/npm/yjs@13.6.27/dist/yjs.js"></script><script src="https://cdn.jsdelivr.net/npm/y-websocket@3.0.0/dist/y-websocket.js"></script><script src="script.js"></script></body></html>

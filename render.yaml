@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: science-whiteboard-sync
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 1234
