@@ -1,13 +1,14 @@
 {
   "name": "science-whiteboard",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "start": "y-websocket",
-    "dev": "y-websocket"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
   "dependencies": {
-    "@y/websocket-server": "^0.1.5",
+    "ws": "^8.18.0",
     "y-websocket": "^3.0.0",
     "yjs": "^13.6.27"
   }
